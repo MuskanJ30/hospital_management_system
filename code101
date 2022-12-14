@@ -23,7 +23,7 @@ class Patient : public Hospital
 void PrintHospitalData(vector<Hospital>& hospitals)
 {
     cout << "PRINT hospitals DATA  :  "<< endl;
-    cout << "HospitalName       Location       Beds_Available       Rating       Hospital_Contact       Doctor_Name       Price_Per_Bed     \n";
+    cout << "HospitalName       Location       Beds_Available       Rating       Hospital_Contact       Doctor_Name       Price_Per_Bed     \n\n";
 
     for (int i = 0; i < 4; i++)
     {
@@ -37,7 +37,7 @@ void PrintHospitalData(vector<Hospital>& hospitals)
 void PrintPatientData(vector<Patient>& patients,vector<Hospital>& hospitals)
 {
     cout << "PRINT patients DATA:"<< endl;
-    cout << "Patient_Name     "<< "Patient_Id     "<< "Patient_Contact     "<< "Alloted_Hospital     "<< "Patient_Expenditure     \n";
+    cout << "Patient_Name     "<< "Patient_Id     "<< "Patient_Contact     "<< "Alloted_Hospital     "<< "Patient_Expenditure     \n\n";
 
     for (int i = 0; i < 4; i++)
     {
@@ -108,13 +108,13 @@ void PrintHospitalBycity(
     string city, vector<Hospital> hospitals)
 {
     cout << "PRINT hospitals by Name : "<< city << endl;
-    cout << "HospitalName     "<< "Location     "<< "Beds_Available     "<< "Rating     "<< "Hospital_Contact     "<< "Doctor_Name     "<< "Price_Per_Bed     \n";
+    cout << "HospitalName     "<< "Location     "<< "Beds_Available     "<< "Rating     "<< "Hospital_Contact     "<< "Doctor_Name     "<< "Price_Per_Bed     \n\n";
 
     for (int i = 0; i < 4; i++)
     {
         if (hospitals[i].location != city)
             continue;
-        cout << hospitals[i].H_name<< "                  "<< "       "<< hospitals[i].location<< "           "<< hospitals[i].available_beds<< "                    "<< hospitals[i].rating<< "            "<< hospitals[i].contact<< "             "<< hospitals[i].doctor_name<< "                "<< "          "<< hospitals[i].price<< "            "<< endl;
+        cout << hospitals[i].H_name<< "                  "<< "       "<< hospitals[i].location<< "           "<< hospitals[i].available_beds<< "                    "<< hospitals[i].rating<< "            "<< hospitals[i].contact<< "             "<< hospitals[i].doctor_name<< "                "<< "          "<< hospitals[i].price<< "            "<<endl;
     }
     cout << endl<< endl;
 }
