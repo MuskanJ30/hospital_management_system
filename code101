@@ -23,7 +23,7 @@ class Patient : public Hospital
 void PrintHospitalData(vector<Hospital>& hospitals)
 {
     cout << "PRINT hospitals DATA  :  "<< endl;
-    cout << "HospitalName    \n Location    \n Beds_Available  \n   Rating   \n  Hospital_Contact    \n Doctor_Name  \n   Price_Per_Bed     \n";
+    cout << "HospitalName       Location       Beds_Available       Rating       Hospital_Contact       Doctor_Name       Price_Per_Bed     \n";
 
     for (int i = 0; i < 4; i++)
     {
