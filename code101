@@ -11,6 +11,8 @@ class Hospital
         string contact;
         string doctor_name;
         int price;
+        
+       
 };
 
 class Patient : public Hospital
@@ -20,19 +22,19 @@ class Patient : public Hospital
         int P_id;
 };
 
-void PrintHospitalData(vector<Hospital>& hospitals)
-{
-    cout << "PRINT hospitals DATA  :  "<< endl;
-    cout << "HospitalName       Location       Beds_Available       Rating       Hospital_Contact       Doctor_Name       Price_Per_Bed     \n\n";
-
-    for (int i = 0; i < 4; i++)
-    {
-        cout << hospitals[i].H_name<< "                 "<< "                 "<<  hospitals[i].location<< "           "<< hospitals[i].available_beds<< "                    "<< hospitals[i].rating<< "            "<< hospitals[i].contact
-             << "             "<< hospitals[i].doctor_name<< "                  "<< "        "<< hospitals[i].price<< "            "<< endl;
-    }
-
-    cout << endl<< endl;
-}
+ void PrintHospitalData(vector<Hospital>& hospitals)
+        {
+            cout << "PRINT hospitals DATA  :  "<< endl;
+            cout << "HospitalName \t Location \t Beds_Available \t Rating \t Hospital_Contact \t Doctor_Name \t Price_Per_Bed     \n\n";
+        
+            for (int i = 0; i < 4; i++)
+            {
+                cout << hospitals[i].H_name<< "\t"<< "     "" \t"<< hospitals[i].location<< "\t"<< "\t"<<"\t" << hospitals[i].available_beds<<"   \t"<<  "     \t"<< hospitals[i].rating<<"\t"<< "\t"<< hospitals[i].contact
+                     <<"\t"<< "\t"<< hospitals[i].doctor_name<< "\t"<< "\t"<< hospitals[i].price<< "\t"<< endl;
+            }
+        
+            cout << endl<< endl<<endl;
+        }
 
 void PrintPatientData(vector<Patient>& patients,vector<Hospital>& hospitals)
 {
@@ -41,10 +43,10 @@ void PrintPatientData(vector<Patient>& patients,vector<Hospital>& hospitals)
 
     for (int i = 0; i < 4; i++)
     {
-        cout << patients[i].P_name<< "                "<< "          "<< patients[i].P_id<< "              "<< "          "<< patients[i].contact<< "                   "<< hospitals[i].H_name<< "                   "<< patients[i].price<< "            "<< endl;
+        cout << patients[i].P_name<< "\t \t "<< patients[i].P_id<< "\t \t "<< patients[i].contact<< " \t \t"<< hospitals[i].H_name<< "\t \t \t"<< patients[i].price<< endl;
     }
 
-    cout << endl<< endl;
+    cout << endl<< endl<<endl;
 }
 
 bool name(Hospital& A, Hospital& B)
@@ -52,13 +54,13 @@ bool name(Hospital& A, Hospital& B)
     return A.H_name > B.H_name;
 }
 
-void SortHospitalByName(
-    vector<Hospital> hospitals)
+void SortHospitalByName(vector<Hospital> hospitals)
 {
     sort(hospitals.begin(),hospitals.end(),name);
 
     cout << "SORT BY NAME : "<< endl<< endl;
     PrintHospitalData(hospitals);
+    cout<<endl<<endl<<endl;
 }
 
 bool rating(Hospital& A, Hospital& B)
@@ -73,6 +75,7 @@ void SortHospitalByRating(vector<Hospital> hospitals)
     cout << "SORT BY Rating:"<< endl<< endl;
 
     PrintHospitalData(hospitals);
+    cout<<endl<<endl<<endl;
 }
 
 bool beds(Hospital& A, Hospital& B)
@@ -80,13 +83,13 @@ bool beds(Hospital& A, Hospital& B)
     return A.available_beds > B.available_beds;
 }
 
-void SortByBedsAvailable(
-    vector<Hospital> hospitals)
+void SortByBedsAvailable(vector<Hospital> hospitals)
 {
     sort(hospitals.begin(),hospitals.end(),beds);
     cout << "SORT BY Available Beds : "<< endl<< endl;
 
     PrintHospitalData(hospitals);
+    cout<<endl<<endl<<endl;
 }
 
 bool beds_price(Hospital& A, Hospital& B)
@@ -99,24 +102,24 @@ void SortByBedsPrice(
 {
     sort(hospitals.begin(),hospitals.end(),beds_price);
 
-    cout << "SORT BY Available Beds Price : "<< endl<< endl;
+    cout << "SORT BY Beds Price : "<< endl<<endl;
 
     PrintHospitalData(hospitals);
+    cout<<endl<<endl<<endl;
 }
 
-void PrintHospitalBycity(
-    string city, vector<Hospital> hospitals)
+void PrintHospitalBycity(string city, vector<Hospital> hospitals)
 {
-    cout << "PRINT hospitals by Name : "<< city << endl;
-    cout << "HospitalName     "<< "Location     "<< "Beds_Available     "<< "Rating     "<< "Hospital_Contact     "<< "Doctor_Name     "<< "Price_Per_Bed     \n\n";
+    cout << "PRINT hospitals by City : "<< city << endl;
+    cout << "HospitalName \t "<< "Location \t"<< "Beds_Available\t"<< "Rating\t"<< "Hospital_Contact\t"<< "Doctor_Name\t"<< "Price_Per_Bed     \n\n";
 
     for (int i = 0; i < 4; i++)
     {
         if (hospitals[i].location != city)
             continue;
-        cout << hospitals[i].H_name<< "                  "<< "       "<< hospitals[i].location<< "           "<< hospitals[i].available_beds<< "                    "<< hospitals[i].rating<< "            "<< hospitals[i].contact<< "             "<< hospitals[i].doctor_name<< "                "<< "          "<< hospitals[i].price<< "            "<<endl;
+        cout << hospitals[i].H_name<< "\t" << "\t" << hospitals[i].location<< "\t" << hospitals[i].available_beds<< "\t" << hospitals[i].rating<<"\t" << hospitals[i].contact<< "\t" << hospitals[i].doctor_name<<"\t" << "\t" << hospitals[i].price<<"\t" <<endl;
     }
-    cout << endl<< endl;
+    cout << endl<< endl<<endl;
 }
 
 void HospitalManagement(
@@ -157,7 +160,7 @@ void HospitalManagement(
 
     SortHospitalByName(hospitals);
     SortHospitalByRating(hospitals);
-    PrintHospitalBycity("Bangalore", hospitals);
+    PrintHospitalBycity("Pune", hospitals);
     SortByBedsAvailable(hospitals);
     SortByBedsPrice(hospitals);
 }
@@ -168,8 +171,8 @@ int main()
     int patient_Id[] = { 2, 3, 4, 1 };
     string patient_Contact[]= { "12345XXXXX", "23456XXXXX", "34567XXXXX","45678XXXXX" };
     int bookingCost[] = { 1000, 1200, 1100, 600 };
-    string hospital_Name[] = { "H1", "H2", "H4", "H3" };
-    string locations[] = { "Bangalore", "Kolkata","Mumbai","Pune" };
+    string hospital_Name[] = { "H1", "H2", "H3" , "H4"};
+    string locations[] = { "Delhi", "Kolkata","Mumbai","Pune" };
     int beds[] = { 4, 5, 6, 9 };
     float ratings[] = { 5.2, 4.1, 3.4, 5.9 };
     string hospital_Contact[]
